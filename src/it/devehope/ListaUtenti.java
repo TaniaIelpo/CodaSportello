@@ -1,16 +1,22 @@
 package it.devehope;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ListaUtenti {
 
-    private List<User> coda= new ArrayList<>();
+    private LinkedList<User> coda= new LinkedList<>();
 
     public ListaUtenti(){
 
     }
+
+    public LinkedList<User> getCoda() {
+        return coda;
+    }
+
     public void insertNewPrivateUser(Scanner input){
         String nome, cognome, cf;
         System.out.println("Inserisci nome:");
@@ -20,9 +26,8 @@ public class ListaUtenti {
         cognome=input.nextLine();
         System.out.println("Inserisci codice fiscale:");
         cf=input.nextLine();
-        input.nextLine();
         PrivateUser user= new PrivateUser(cf, nome, cognome );
-        coda.add(user);
+        coda.addLast(user);
     }
 
     public void insertNewBusinessUser(Scanner input){
@@ -35,12 +40,12 @@ public class ListaUtenti {
         System.out.println("Inserisci nome azienda:");
         azienda=input.nextLine();
         BusinessUser user= new BusinessUser(azienda, nome, cognome );
-        coda.add(user);
+        coda.addLast(user);
     }
     public void serviUser() {
         if(!coda.isEmpty()) {
-            User user = coda.get(0);
-            coda.remove(0);
+            User user = coda.getFirst();
+            coda.removeFirst();
             if (user instanceof BusinessUser) {
                 System.out.println("Ho servito un cliente Business");
             }

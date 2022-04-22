@@ -7,6 +7,7 @@ public class Start {
 
     public static void main(String[] args) {
         ListaUtenti coda=new ListaUtenti();
+        OperatoreSportello operatoreSportello=new OperatoreSportello();
         Scanner input = new Scanner(System.in);
         int choice;
         do{
@@ -25,7 +26,7 @@ public class Start {
                     coda.insertNewBusinessUser(input);
                     break;
                 case 3:
-                    coda.serviUser();
+                    operatoreSportello.serviUser(coda);
                     break;
                 default:
                     System.out.println("scelta non valida");
