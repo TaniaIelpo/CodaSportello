@@ -42,19 +42,5 @@ public class ListaUtenti {
         BusinessUser user= new BusinessUser(azienda, nome, cognome );
         coda.addLast(user);
     }
-    public void serviUser() {
-        if(!coda.isEmpty()) {
-            User user = coda.getFirst();
-            coda.removeFirst();
-            if (user instanceof BusinessUser) {
-                System.out.println("Ho servito un cliente Business");
-            }
-            else {
-                System.out.println("Ho servito un cliente Privato");
-            }
-        }
-        else{
-            System.out.println("Nessuno in coda");
-        }
-    }
+
 }
